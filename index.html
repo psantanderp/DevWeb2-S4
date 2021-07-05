@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <!-- Se define codificación de caracteres-->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <!-- Se establece la etiqueta viewport para indicar la escala del ancho que se debe considerar-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0; user-scalable=0;">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <!-- Se define hoja de estilos externa-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Se define hoja de estilos externa-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <title>JavaScript</title>
+  </head>
+  <body>
+    <!-- Se estrucura la pagina en forma de cajas, se agrega a una caja header de la clase clearflix-->
+    <header class="clearflix">
+      <h3>Desarrollo Web II - S4</h3>
+    </header>
+    <!-- Se seccionan los contenidos agrupandolos en una gran caja con las etiquetas section y la clase contenido -->
+    <section class="contenido">
+      <!-- Se utiliza la estructura de rejilla dentro de contenido, para cada caja con sus tipos de columnas -->
+      <article class="row show-grid">
+        <div class="col-lg">
+          <h2>Fundamentos JavaScript</h2>
+          <br>
+          <h4>Pregunta N°1</h4>
+          <p>Realice un documento javascript donde se muestre la suma de todos los
+             números menores que otro número dado.</p>
+          <script>
+            //Se agrega estructura JavaScript donde se declaran las variables de los números a mostrar
+            let x = 5, sumatoria = 0;
+            //Muestra en pantalla un mensaje con el valor del número declarado para iniciar los ciclos
+            document.write('La sumatoria de los números menores de '+ x +' es:'+'<br>');
+            document.write('<br>');
+            //Ciclo se sumara en cada ciclo el número menor al ingresado mas la suma acumulada
+            for (var i = 0; i < x; i++) {
+              sumatoria += i;
+              //Muestra en pantalla la cantidad de números menores, mas su resultado acumulado
+              document.write('Suma N° '+i + ' = '+sumatoria);
+              document.write('<br>');
+            }
+          </script>
+        </div>
+      </article>
+      <article class="row show-grid">
+        <div class="col-lg">
+          <br>
+          <h4>Pregunta N°2</h4>
+          <p>En un nuevo documento javascript cree un objeto y asignar 5 propiedades.</p>
+          <script>
+            //Se agrega una clase persona con su constructor, propiedades y método correspondiente
+            class persona{
+              //Constructor asignar valores a los atributos de la clase
+              constructor(nombre, apellido, correo, telefono){
+                this.nombre = nombre;
+                this.apellido = apellido;
+                this.correo = correo;
+                this.telefono = telefono;
+                this.informacion = '<strong>Nombre Completo:</strong> '+ this.nombre +' '+this.apellido+'.'+'<br>'+
+                '<strong>Email:</strong> '+ this.correo +'.'+'<br>'+ '<strong>Teléfono:</strong> '+ this.telefono+'.'+'<br>';
+              }
+              //Método que muestra la información en pantalla
+              mostrarInfo(){
+                document.write('<br>')
+                document.write(this.informacion)
+                document.write('<br>')
+              }
+            }
+            //Se instancian los objetos de la clase persona
+            let estudiante = new persona('Olivia', 'Santander', 'sin email', '+56958595673');
+            let apoderado = new persona('Pablo', 'Santander', 'pablo.santander.p@gmail.com', '+56958595673');
+            let empleado = new persona('Jyce', 'Troncoso', 'jtroncoso@servel.cl', '+56968327251');
+            //Se muestra por consola
+            console.log(estudiante);
+            console.log(apoderado);
+            console.log(empleado);
+            //Se muestra por pantalla
+            document.write('//Se muestra el objeto estudiante de la clase persona '+'<br>')
+            document.write('estudiante.mostrarInfo()'+'<br>')
+            estudiante.mostrarInfo();
+            document.write('//Se muestra el objeto apoderado de la clase persona '+'<br>')
+            document.write('apoderado.mostrarInfo()'+'<br>')
+            apoderado.mostrarInfo();
+            document.write('//Se muestra el objeto empleado de la clase persona '+'<br>')
+            document.write('empleado.mostrarInfo()'+'<br>')
+            empleado.mostrarInfo();
+          </script>
+        </div>
+      </article>
+      <article class="row show-grid">
+        <div class="col-lg">
+          <br>
+          <h4 id="test1">Pregunta N° 3</h4>
+          <p id="test2">Crear una función JQuery que permita encontrar elementos por ID</p>
+          <p>Este es un párrafo sin id</p>
+          <!-- Se agrega Id al párrafo para que sea llamado por JQuery -->
+          <p id="test3">Este es un párrafo con id, al hacer clic sobre mi, <strong>desaparecere!</strong>...</p>
+          <script>
+            //Este apartado corresponde al código de jquery para llamar al selector por id
+            $(document).ready(function(){
+              //Selector de elemento de tipo párrafo que ejecuta una función para ocultarlo
+              $("p").click(function(){
+                //Selector de Id "test3".
+                $("#test3").hide();
+              });
+            });
+          </script>
+        </div>
+      </article>
+    </section>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Se agregan las librerias de jQuery que nos sirven para trabajar con los elementos @media en nuestras hojas-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
